@@ -31,7 +31,7 @@ const StartGameScreenStyle = StyleSheet.create({
         alignItems: 'center',
         padding: 15,
         marginHorizontal: 15,
-        backgroundColor: '#4e0329',
+        backgroundColor: '#3b0217',
         borderRadius: 8,
         elevation: 4, //-> Only Android
         shadowColor: 'black',
