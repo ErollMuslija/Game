@@ -1,4 +1,5 @@
 import { StyleSheet, Text } from "react-native"
+import Colors from "../constants/colors";
 
 const Title = ({children}) => {
  return (
@@ -12,10 +13,10 @@ const titleStyle = StyleSheet.create({
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#ddb52f',
+        color: Colors.gold,
         textAlign: 'center',
         borderWidth: 2,
-        borderColor: '#ddb52f',
+        borderColor: Colors.gold,
         padding: 12
     }
 })
