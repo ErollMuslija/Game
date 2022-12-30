@@ -53,11 +53,11 @@ const GameScreen = ({userNumber, gameOverHandler}) => {
        <View style={GameScreenStyle.screen}>
         <Title>Opponent's Guess</Title>
         <NumberContainer>{currentGuess}</NumberContainer>
-        <InstructionText>Higher of Lower?</InstructionText>
         <View>
             {/* LOG ROUND */}
         </View>
         <Card>
+        <InstructionText style={GameScreenStyle.text} >Higher of Lower?</InstructionText>
         <View style={GameScreenStyle.buttonPositions}>
                 <View style={GameScreenStyle.buttonSpace}>
                     <PrimaryButton onPress={nextGuesHandler.bind(this, 'higher')}>+</PrimaryButton>
@@ -83,5 +83,8 @@ const GameScreenStyle = StyleSheet.create({
     },
     buttonSpace: {
         flex: 1
+    },
+    text:{
+        marginBottom: 15
     }
 })
