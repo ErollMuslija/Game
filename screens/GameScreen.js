@@ -5,9 +5,7 @@ import Card from "../components/UI/Card";
 import InstructionText from "../components/UI/InstructionText";
 import PrimaryButton from "../components/UI/PrimaryButton";
 import Title from "../components/UI/Title";
-
-
-
+import { Ionicons } from '@expo/vector-icons'; 
 
 
 const GameScreen = ({userNumber, gameOverHandler}) => {
@@ -60,10 +58,14 @@ const GameScreen = ({userNumber, gameOverHandler}) => {
         <InstructionText style={GameScreenStyle.text} >Higher of Lower?</InstructionText>
         <View style={GameScreenStyle.buttonPositions}>
                 <View style={GameScreenStyle.buttonSpace}>
-                    <PrimaryButton onPress={nextGuesHandler.bind(this, 'higher')}>+</PrimaryButton>
+                    <PrimaryButton onPress={nextGuesHandler.bind(this, 'higher')}>
+                        <Ionicons name="md-remove" size={24} color="white" />
+                    </PrimaryButton>
                 </View>
                 <View style={GameScreenStyle.buttonSpace}>
-                    <PrimaryButton onPress={nextGuesHandler.bind(this, 'lower')}>-</PrimaryButton>
+                    <PrimaryButton onPress={nextGuesHandler.bind(this, 'lower')}>
+                        <Ionicons name="md-add" size={24} color="white" />
+                    </PrimaryButton>
                 </View>
             </View>
         </Card>
