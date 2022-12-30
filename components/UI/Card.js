@@ -6,14 +6,6 @@ const Card = ({children, confirmHandler, resetValue}) => {
     return (
         <View  style={CardStyle.container}>
             {children}
-            {/* <View style={CardStyle.buttonsContainer}>
-                <View style={CardStyle.buttonContainer}>
-                    <PrimaryButton onPress={resetValue}>Reset</PrimaryButton>
-                </View>
-                <View style={CardStyle.buttonContainer}>
-                    <PrimaryButton onPress={confirmHandler}>Confirm</PrimaryButton>
-                </View>
-            </View> */}
         </View>
     )
 }
