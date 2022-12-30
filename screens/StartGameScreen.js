@@ -4,6 +4,7 @@ import PrimaryButton from "../components/UI/PrimaryButton";
 import Title from "../components/UI/Title";
 import Colors from "../constants/colors";
 import Card from "../components/UI/Card";
+import InstructionText from "../components/UI/InstructionText";
 
 const StartGameScreen = ({pickedNumberHandler}) => {
     const [ enteredNumber, setEnteredNumber ] = useState('');
@@ -32,7 +33,7 @@ const StartGameScreen = ({pickedNumberHandler}) => {
     <View style={StartGameScreenStyle.screenContainer}>
         <Title>Guess my number</Title>
         <Card confirmHandler={confirmHandler} resetValue={resetValue}>
-        <Text style={StartGameScreenStyle.title}>Enter a number</Text>
+        <InstructionText>Enter a number</InstructionText>
         <TextInput style={StartGameScreenStyle.numberInput}
             maxLength={2}
             keyboardType="number-pad"
@@ -92,9 +93,5 @@ const StartGameScreenStyle = StyleSheet.create({
     },
     buttonContainer:{
         flex: 1
-    },
-    title:{
-        color: Colors.gold,
-        fontSize: 24
     }
 })
