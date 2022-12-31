@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { Text, View, StyleSheet, Alert } from "react-native";
+import { Text, View, StyleSheet, Alert, FlatList } from "react-native";
 import NumberContainer from "../components/game/t/numberContainer";
 import Card from "../components/UI/Card";
 import InstructionText from "../components/UI/InstructionText";
 import PrimaryButton from "../components/UI/PrimaryButton";
 import Title from "../components/UI/Title";
 import { Ionicons } from '@expo/vector-icons'; 
+import Colors from "../constants/colors";
 
 
 const GameScreen = ({userNumber, gameOverHandler}) => {
@@ -24,12 +25,20 @@ const GameScreen = ({userNumber, gameOverHandler}) => {
 
     const initialGuess = generateRandomNumber(minBoundary, maxBoundary, userNumber)
     const [currentGuess, setCurrentGues] = useState(initialGuess)
+    const [guessRound, setGuressRound ] = useState([initialGuess])
+
+ 
 
     useEffect(() => {
         if(currentGuess === userNumber){
           gameOverHandler();
         }
     },[currentGuess, userNumber, gameOverHandler])
+
+    useEffect(() => {
+        let minBoundary = 1 
+        let maxBoundary = 100
+    }, [])
 
  
     function nextGuesHandler (direction){
@@ -46,14 +55,15 @@ const GameScreen = ({userNumber, gameOverHandler}) => {
         }
         const newRndNumber = generateRandomNumber(minBoundary, maxBoundary, currentGuess);
         setCurrentGues(newRndNumber);
+        setGuressRound(prevGuessRound => [newRndNumber, ...prevGuessRound])
     }
+
+    const renderItem = ({item}) => <Text style={{color: Colors.gold}}>{item}</Text>
+
     return (
        <View style={GameScreenStyle.screen}>
         <Title>Opponent's Guess</Title>
         <NumberContainer>{currentGuess}</NumberContainer>
-        <View>
-            {/* LOG ROUND */}
-        </View>
         <Card>
         <InstructionText style={GameScreenStyle.text} >Higher of Lower?</InstructionText>
         <View style={GameScreenStyle.buttonPositions}>
@@ -69,6 +79,13 @@ const GameScreen = ({userNumber, gameOverHandler}) => {
                 </View>
             </View>
         </Card>
+        <View>
+            <FlatList
+             data={guessRound}
+             renderItem={renderItem}
+             keyExtractor={(item) => item}
+            />
+        </View>
        </View>
     )
 }

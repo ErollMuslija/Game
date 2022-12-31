@@ -11,6 +11,7 @@ export default function App() {
 
   const [userNumber, setUserNumber] = useState();
   const [gameOver, setGameOver ] = useState(true);
+  const [gessRound, setGessRound ]= useState(0)
 
   const [fontsLoaded] = useFonts({
     'popins': require('./assets/fonts/Poppins-Regular.ttf'),
@@ -30,6 +31,11 @@ export default function App() {
     setGameOver(true)
   }
 
+  function newGame(){
+    setUserNumber(null)
+    setGessRound(0)
+  }
+
   let screen = <StartGameScreen pickedNumberHandler={pickedNumberHandler}/>
 
   if(userNumber){
@@ -37,7 +43,7 @@ export default function App() {
   }
 
   if(gameOver && userNumber){
-    screen = <GameOverScreen/>
+    screen = <GameOverScreen newGame={newGame} userNumber={userNumber} roundsNumber={gessRound}/>
   }
 
 
