@@ -15,7 +15,8 @@ export default InstructionText;
 const InstructionTextStyle = StyleSheet.create({
     title:{
         color: Colors.gold,
-        fontSize: 24
+        fontSize: 24,
+        fontFamily: 'popins'
     }
 })
 
