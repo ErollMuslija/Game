@@ -7,6 +7,7 @@ import PrimaryButton from "../components/UI/PrimaryButton";
 import Title from "../components/UI/Title";
 import { Ionicons } from '@expo/vector-icons'; 
 import Colors from "../constants/colors";
+import GuesedLogItems from "../components/game/t/GuessedLogItems";
 
 
 const GameScreen = ({userNumber, gameOverHandler}) => {
@@ -40,6 +41,7 @@ const GameScreen = ({userNumber, gameOverHandler}) => {
         let maxBoundary = 100
     }, [])
 
+    const guessRoundsLength = guessRound.length
  
     function nextGuesHandler (direction){
         if((direction === 'lower' && currentGuess < userNumber) ||
@@ -82,7 +84,7 @@ const GameScreen = ({userNumber, gameOverHandler}) => {
         <View>
             <FlatList
              data={guessRound}
-             renderItem={renderItem}
+             renderItem={(itemData) => <GuesedLogItems roundedNumber={guessRoundsLength - itemData.index} guess={itemData.item}/>}
              keyExtractor={(item) => item}
             />
         </View>
