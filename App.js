@@ -6,6 +6,7 @@ import GameScreen from './screens/GameScreen'
 import GameOverScreen from './screens/GameOverScreen';
 import { useFonts } from 'expo-font';
 import { ActivityIndicator } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
 
@@ -48,6 +49,8 @@ export default function App() {
 
 
   return (
+    <>
+    <StatusBar style='light'/>
     <LinearGradient colors={[ '#4e0329', '#ddb52f',]} style={styles.container}>
       <ImageBackground
       source={require('./assets/Images/background.png')}
@@ -60,6 +63,7 @@ export default function App() {
         </SafeAreaView>
       </ImageBackground>
     </LinearGradient>
+    </>
   );
 }
 
